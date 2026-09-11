@@ -1,0 +1,6 @@
+{
+  "name": "Conjugaison Mathématique",
+  "description": "Apprentissage de la conjugaison française par les formules, équations et algorithmes mathématiques. Conçu par Mouatamid Chaima.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
