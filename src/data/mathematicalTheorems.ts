@@ -203,38 +203,52 @@ export const MATHEMATICAL_THEOREMS: TheoremSection[] = [
   {
     id: 'theoreme-temps-composes',
     badge: 'Règle d’Or #4',
-    title: 'Les Temps Composés & la Règle d’Accord',
-    subtitle: 'La méthode claire pour accorder le participe passé',
-    formula: 'Temps Composé = Auxiliaire (Être ou Avoir) + Participe Passé',
-    formulaMeaning: 'Tout temps composé associe l’auxiliaire et le participe passé. L’accord dépend uniquement de l’auxiliaire utilisé.',
+    title: 'Les Temps Composés & la Règle d’Accord (ÊTRE vs AVOIR)',
+    subtitle: 'Comment choisir entre Être et Avoir au passé composé et accorder sans faute',
+    formula: 'Passé Composé = Auxiliaire au présent (ÊTRE ou AVOIR) + Participe Passé',
+    formulaMeaning: 'La majorité des verbes d’action utilisent AVOIR. Les verbes de mouvement, d’état ("La Maison d’Être") et tous les verbes pronominaux utilisent obligatoirement ÊTRE.',
     theory: [
-      'Présent de l’auxiliaire + Participe = Passé Composé (ex: j’ai mangé, je suis venu).',
-      'Imparfait de l’auxiliaire + Participe = Plus-que-parfait (ex: j’avais mangé, j’étais venu).',
-      'Terminaisons des participes passés réguliers : 1er groupe (-er) ⟶ -é | 2ème groupe (-ir) ⟶ -i | 3ème groupe ⟶ souvent -u, -is ou -it.'
+      'Présent de l’auxiliaire + Participe = Passé Composé (ex: j’ai mangé, je suis parti).',
+      'Imparfait de l’auxiliaire + Participe = Plus-que-parfait (ex: j’avais mangé, j’étais parti).',
+      'Qui prend l’auxiliaire ÊTRE ? 1) Les verbes de mouvement et d’état (La Maison d’Être : partir, arriver, aller, venir, sortir, entrer, monter, descendre, rester, tomber, naître, mourir, etc.). 2) TOUS les verbes pronominaux (se laver, se lever, s’amuser...).',
+      'Règle d’or de l’accord avec ÊTRE : Le participe passé s’accorde TOUJOURS en genre (+e au féminin) et en nombre (+s au pluriel) avec le Sujet.',
+      'Règle avec AVOIR : Le participe passé ne s’accorde JAMAIS avec le sujet. Il s’accorde uniquement avec le COD si celui-ci est placé AVANT le verbe.'
     ],
     demonstrationSteps: [
       {
-        label: 'Règle avec ÊTRE (Accord automatique)',
-        calculation: 'Avec l’auxiliaire ÊTRE ⟶ on accorde TOUJOURS avec le Sujet.',
-        result: 'Elle est partie (féminin singulier) | Ils sont partis (masculin pluriel)',
-        note: 'Le participe s’accorde directement avec la personne qui fait l’action.'
+        label: 'Verbe PARTIR (Auxiliaire ÊTRE - Mouvement)',
+        calculation: 'Sujet "Elle" (fém. sing.) + Auxiliaire ÊTRE "est" + Participe accordé "parti" + "e"',
+        result: 'Elle est partie',
+        note: 'Le "e" marque le féminin car le sujet est "Elle".'
       },
       {
-        label: 'Règle avec AVOIR (Accord conditionnel)',
-        calculation: 'Avec AVOIR ⟶ on accorde SEULEMENT si le COD est placé AVANT le verbe.',
-        result: 'J’ai mangé les pommes (COD après ⟶ pas d’accord) | Les pommes que j’ai mangées (COD avant ⟶ accord avec "les pommes")',
-        note: 'Si le COD est après ou absent, le participe passé reste invariable.'
+        label: 'Verbe ARRIVER (Auxiliaire ÊTRE - Pluriel)',
+        calculation: 'Sujet "Ils" (masc. plur.) + Auxiliaire ÊTRE "sont" + Participe accordé "arrivé" + "s"',
+        result: 'Ils sont arrivés (ou "Elles sont arrivées")',
+        note: 'Le "s" (ou "es") marque le pluriel automatiquement.'
+      },
+      {
+        label: 'Verbe PARLER (Auxiliaire AVOIR - Action)',
+        calculation: 'Sujet "Elle" + Auxiliaire AVOIR "a" + Participe invariable "parlé"',
+        result: 'Elle a parlé (pas de "e" final)',
+        note: 'Avec Avoir, aucun accord avec le sujet.'
+      },
+      {
+        label: 'Accord AVOIR avec COD antécédent',
+        calculation: '"Les fleurs" (fém. plur.) + que + "j’ai cueillies"',
+        result: 'Les fleurs que j’ai cueillies (+es)',
+        note: 'Le COD "les fleurs" est placé avant le verbe ⟶ accord avec le COD.'
       }
     ],
     truthTableOrMatrix: {
-      headers: ['Auxiliaire', 'Position du COD', 'Accord avec le Sujet', 'Accord avec le COD'],
+      headers: ['Auxiliaire', 'Verbes concernés', 'Accord avec le Sujet', 'Exemples clés'],
       rows: [
-        ['ÊTRE', 'Peu importe', 'OUI (Genre et Nombre)', 'NON'],
-        ['AVOIR', 'Après le verbe (ou absent)', 'NON (Invariable)', 'NON'],
-        ['AVOIR', 'Avant le verbe (que, les...)', 'NON', 'OUI (Genre et Nombre du COD)']
+        ['ÊTRE (🏠)', 'Maison d’Être (16 verbes) + Tous les pronominaux (se...)', 'OUI (Genre et Nombre du Sujet)', 'Elle est partie, ils sont arrivés, elle s’est lavée'],
+        ['AVOIR', 'Tous les autres verbes (95% des verbes d’action)', 'NON (Invariable avec le sujet)', 'Elle a parlé, ils ont mangé, j’ai fini'],
+        ['AVOIR + COD avant', 'Quand le COD précède le verbe (que, les, l’...)', 'Accord avec le COD antécédent', 'La lettre que j’ai écrite, les pommes qu’il a mangées']
       ]
     },
-    keyTakeaway: 'Avec ÊTRE, accordez toujours avec le sujet. Avec AVOIR, accordez seulement si le COD est placé avant.'
+    keyTakeaway: 'Avec ÊTRE (mouvement, état, pronominal) : accord obligatoire avec le sujet ! Avec AVOIR : pas d’accord avec le sujet.'
   },
   {
     id: 'theoreme-passe-simple',

@@ -29,10 +29,39 @@ export const PRONOUNS: { key: Pronoun; label: string; plural: boolean; person: n
   { key: 'ils', label: 'Ils / Elles', plural: true, person: 3 }
 ];
 
+// Liste canonique des verbes intransitifs de mouvement et d'état (Maison d'Être / DR MRS VANDERTRAMP)
+export const ETRE_VERBS_SET = new Set([
+  'aller', 'venir', 'partir', 'arriver', 'entrer', 'rentrer', 'sortir',
+  'retourner', 'monter', 'descendre', 'rester', 'tomber', 'naître', 'naitre',
+  'mourir', 'revenir', 'devenir', 'parvenir', 'repartir', 'ressortir',
+  'remonter', 'redescendre', 'intervenir', 'passer'
+]);
+
+export function isEtreAuxiliary(infinitive: string): boolean {
+  const norm = infinitive.trim().toLowerCase();
+  if (norm.startsWith('se ') || norm.startsWith("s'")) return true;
+  return ETRE_VERBS_SET.has(norm);
+}
+
 export function findVerb(query: string): VerbConjugationData | null {
   const normalized = query.trim().toLowerCase();
-  const directMatch = VERBS_DATABASE.find(v => v.infinitive.toLowerCase() === normalized);
+  
+  // Direct match in database
+  const directMatch = VERBS_DATABASE.find(v => 
+    v.infinitive.toLowerCase() === normalized || 
+    v.infinitive.toLowerCase().replace(/[éèêë]/g, 'e').replace(/[îï]/g, 'i').replace(/[ô]/g, 'o').replace(/[ûü]/g, 'u') === 
+    normalized.replace(/[éèêë]/g, 'e').replace(/[îï]/g, 'i').replace(/[ô]/g, 'o').replace(/[ûü]/g, 'u')
+  );
   if (directMatch) return directMatch;
+
+  // Support for reflexive/pronominal verbs (se laver, s'habiller, se réveiller, etc.)
+  if (normalized.startsWith('se ') || normalized.startsWith("s'")) {
+    const rawVerb = normalized.startsWith('se ') ? normalized.slice(3).trim() : normalized.slice(2).trim();
+    const base = findVerb(rawVerb);
+    if (base) {
+      return generatePronominalVerb(normalized, base);
+    }
+  }
 
   // Fallback heuristic for arbitrary -er or -ir verbs entered by the student
   if (normalized.endsWith('er') && normalized !== 'aller') {
@@ -45,14 +74,108 @@ export function findVerb(query: string): VerbConjugationData | null {
   return null;
 }
 
+function generatePronominalVerb(infinitive: string, base: VerbConjugationData): VerbConjugationData {
+  const isVowelBase = /^[aeiouyhéèêëàâîïôûù]/i.test(base.infinitive);
+  return {
+    infinitive,
+    meaningFr: `Verbe pronominal dérivé de "${base.infinitive}" (toujours conjugué avec l'auxiliaire ÊTRE)`,
+    translationDarija: `Verbe pronominal (Auxiliaire Être obligatoire)`,
+    group: base.group,
+    auxiliary: 'être',
+    pastParticiple: base.pastParticiple,
+    regular: base.regular,
+    stems: base.stems,
+    conjugations: {
+      present: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.present.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.present.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.present.il,
+        nous: "nous " + base.conjugations.present.nous,
+        vous: "vous " + base.conjugations.present.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.present.ils
+      },
+      imparfait: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.imparfait.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.imparfait.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.imparfait.il,
+        nous: "nous " + base.conjugations.imparfait.nous,
+        vous: "vous " + base.conjugations.imparfait.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.imparfait.ils
+      },
+      futur_simple: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.futur_simple.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.futur_simple.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.futur_simple.il,
+        nous: "nous " + base.conjugations.futur_simple.nous,
+        vous: "vous " + base.conjugations.futur_simple.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.futur_simple.ils
+      },
+      conditionnel_present: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.conditionnel_present.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.conditionnel_present.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.conditionnel_present.il,
+        nous: "nous " + base.conjugations.conditionnel_present.nous,
+        vous: "vous " + base.conjugations.conditionnel_present.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.conditionnel_present.ils
+      },
+      passe_compose: {
+        je: "me suis " + base.pastParticiple + "(e)",
+        tu: "t'es " + base.pastParticiple + "(e)",
+        il: "s'est " + base.pastParticiple,
+        nous: "nous sommes " + base.pastParticiple + "(e)s",
+        vous: "vous êtes " + base.pastParticiple + "(e)(s)",
+        ils: "se sont " + base.pastParticiple + "s"
+      },
+      plus_que_parfait: {
+        je: "m'étais " + base.pastParticiple + "(e)",
+        tu: "t'étais " + base.pastParticiple + "(e)",
+        il: "s'était " + base.pastParticiple,
+        nous: "nous étions " + base.pastParticiple + "(e)s",
+        vous: "vous étiez " + base.pastParticiple + "(e)(s)",
+        ils: "s'étaient " + base.pastParticiple + "s"
+      },
+      subjonctif_present: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.subjonctif_present.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.subjonctif_present.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.subjonctif_present.il,
+        nous: "nous " + base.conjugations.subjonctif_present.nous,
+        vous: "vous " + base.conjugations.subjonctif_present.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.subjonctif_present.ils
+      },
+      passe_simple: {
+        je: (isVowelBase ? "m'" : "me ") + base.conjugations.passe_simple.je,
+        tu: (isVowelBase ? "t'" : "te ") + base.conjugations.passe_simple.tu,
+        il: (isVowelBase ? "s'" : "se ") + base.conjugations.passe_simple.il,
+        nous: "nous " + base.conjugations.passe_simple.nous,
+        vous: "vous " + base.conjugations.passe_simple.vous,
+        ils: (isVowelBase ? "s'" : "se ") + base.conjugations.passe_simple.ils
+      },
+      imperatif_present: {
+        tu: base.conjugations.imperatif_present.tu + "-toi",
+        nous: base.conjugations.imperatif_present.nous + "-nous",
+        vous: base.conjugations.imperatif_present.vous + "-vous"
+      }
+    },
+    mathematicalNotes: [
+      'Verbe pronominal : prend obligatoirement l’auxiliaire ÊTRE aux temps composés.',
+      'Participe passé accordé avec le sujet : Elle s’est ' + base.pastParticiple + 'e.'
+    ]
+  };
+}
+
 function generateRegularG1Verb(infinitive: string): VerbConjugationData {
   const stem = infinitive.slice(0, -2);
   const isVowelStart = /^[aeiouyhéèêëàâîïôûù]/i.test(infinitive);
+  const isEtre = isEtreAuxiliary(infinitive);
+  const aux = isEtre ? 'être' : 'avoir';
+
   return {
     infinitive,
-    meaningFr: 'Verbe régulier du 1er groupe généré par algorithme',
+    meaningFr: isEtre 
+      ? 'Verbe de la Maison d’Être généré par algorithme (auxiliaire ÊTRE)'
+      : 'Verbe régulier du 1er groupe généré par algorithme',
     group: 'G1',
-    auxiliary: 'avoir',
+    auxiliary: aux,
     pastParticiple: stem + 'é',
     regular: true,
     stems: {
@@ -95,15 +218,29 @@ function generateRegularG1Verb(infinitive: string): VerbConjugationData {
         vous: infinitive + 'iez',
         ils: infinitive + 'aient'
       },
-      passe_compose: {
-        je: (isVowelStart ? "ai " : "ai ") + stem + 'é',
+      passe_compose: isEtre ? {
+        je: 'suis ' + stem + 'é(e)',
+        tu: 'es ' + stem + 'é(e)',
+        il: 'est ' + stem + 'é',
+        nous: 'sommes ' + stem + 'é(e)s',
+        vous: 'êtes ' + stem + 'é(e)(s)',
+        ils: 'sont ' + stem + 'és'
+      } : {
+        je: 'ai ' + stem + 'é',
         tu: 'as ' + stem + 'é',
         il: 'a ' + stem + 'é',
         nous: 'avons ' + stem + 'é',
         vous: 'avez ' + stem + 'é',
         ils: 'ont ' + stem + 'é'
       },
-      plus_que_parfait: {
+      plus_que_parfait: isEtre ? {
+        je: 'étais ' + stem + 'é(e)',
+        tu: 'étais ' + stem + 'é(e)',
+        il: 'était ' + stem + 'é',
+        nous: 'étions ' + stem + 'é(e)s',
+        vous: 'étiez ' + stem + 'é(e)(s)',
+        ils: 'étaient ' + stem + 'és'
+      } : {
         je: 'avais ' + stem + 'é',
         tu: 'avais ' + stem + 'é',
         il: 'avait ' + stem + 'é',
@@ -135,7 +272,9 @@ function generateRegularG1Verb(infinitive: string): VerbConjugationData {
     },
     mathematicalNotes: [
       `Algorithme G1 appliqué : R = "${infinitive}" - "er" = "${stem}".`,
-      `Futur calculé par addition canonique : "${infinitive}" + terminaisons d'Avoir.`,
+      isEtre 
+        ? `Auxiliaire ÊTRE : verbe appartenant à la Maison d'Être. Participe passé accordé avec le sujet.`
+        : `Futur calculé par addition canonique : "${infinitive}" + terminaisons d'Avoir.`,
       `Imparfait dérivé via le théorème de Nous : "${stem}ons" - "ons" = "${stem}".`
     ]
   };
@@ -250,21 +389,21 @@ export function solveConjugation(
     const rawVal = tenseMap[p.key] || '';
     let pronLabel = p.label;
 
-    if (p.key === 'je' && (isVowelStart || rawVal.startsWith('ai ') || rawVal.startsWith('avais '))) {
-      if (tense === 'subjonctif_present') {
-        pronLabel = "qu'il / qu'elle";
-      } else {
+    if (p.key === 'je') {
+      const startsWithVowelSound = /^[aeiouyhéèêëàâîïôûù]/i.test(rawVal);
+      if (startsWithVowelSound) {
         pronLabel = "J'";
       }
     }
 
     if (tense === 'subjonctif_present') {
-      if (p.key === 'je') pronLabel = isVowelStart ? "qu'je" : "que je";
+      const startsWithVowel = /^[aeiouyhéèêëàâîïôûù]/i.test(rawVal);
+      if (p.key === 'je') pronLabel = startsWithVowel ? "que j'" : "que je";
       if (p.key === 'tu') pronLabel = "que tu";
-      if (p.key === 'il') pronLabel = "qu'il";
+      if (p.key === 'il') pronLabel = "qu'il / qu'elle";
       if (p.key === 'nous') pronLabel = "que nous";
       if (p.key === 'vous') pronLabel = "que vous";
-      if (p.key === 'ils') pronLabel = "qu'ils";
+      if (p.key === 'ils') pronLabel = "qu'ils / qu'elles";
     }
 
     // Split into stem & ending for visual math representation
@@ -299,43 +438,58 @@ export function solveConjugation(
     };
   });
 
+  const isCompoundTense = tense === 'passe_compose' || tense === 'plus_que_parfait';
+  const isEtre = verb.auxiliary === 'être';
+
   // Build the 5-step simple logical proof
   const steps: MathStep[] = [
     {
       stepNumber: 1,
-      title: 'Groupe du verbe',
+      title: 'Groupe & Nature du verbe',
       mathNotation: verb.group === 'G1' ? '1er Groupe (-er)' : verb.group === 'G2' ? '2ème Groupe (-ir)' : '3ème Groupe',
       explanation: `Le verbe "${verb.infinitive}" fait partie du ${
         verb.group === 'G1' ? '1er groupe (verbe régulier terminé par -er).' :
         verb.group === 'G2' ? '2ème groupe (verbe en -ir qui fait -issons avec nous).' :
         '3ème groupe (verbe irrégulier ou à plusieurs bases).'
-      }`
+      }${isEtre ? ' Il appartient à la liste des verbes conjugués avec ÊTRE au passé composé (Maison d’Être / Mouvement / État).' : ''}`
     },
     {
       stepNumber: 2,
-      title: 'Trouver le Radical (la base)',
+      title: isCompoundTense ? 'Choix de l’Auxiliaire (ÊTRE ou AVOIR)' : 'Trouver le Radical (la base)',
       mathNotation: getStemFormulaNotation(verb, tense),
       explanation: getStemExplanation(verb, tense)
     },
     {
       stepNumber: 3,
-      title: 'Ajouter la Terminaison',
-      mathNotation: `Terminaison = "${fullTable[selectedPronoun].ending}"`,
-      explanation: `Pour le pronom "${selectedPronoun}", la terminaison exacte à ce temps est "${fullTable[selectedPronoun].ending}".`
+      title: isCompoundTense ? 'Participe Passé & Accord' : 'Ajouter la Terminaison',
+      mathNotation: isCompoundTense
+        ? `Participe = "${fullTable[selectedPronoun].ending}" (${isEtre ? 'Accord automatique avec le sujet ' + selectedPronoun : 'Invariable sans COD antécédent'})`
+        : `Terminaison = "${fullTable[selectedPronoun].ending}"`,
+      explanation: isCompoundTense
+        ? (isEtre 
+            ? `Avec l’auxiliaire ÊTRE, le participe s’accorde toujours en genre et en nombre avec le sujet "${selectedPronoun}". On obtient : "${fullTable[selectedPronoun].ending}".`
+            : `Avec l’auxiliaire AVOIR, le participe passé "${verb.pastParticiple}" ne s’accorde jamais avec le sujet.`)
+        : `Pour le pronom "${selectedPronoun}", la terminaison exacte à ce temps est "${fullTable[selectedPronoun].ending}".`
     },
     {
       stepNumber: 4,
-      title: 'Assembler : Radical + Terminaison',
-      mathNotation: `"${fullTable[selectedPronoun].stem}" + "${fullTable[selectedPronoun].ending}" = "${fullTable[selectedPronoun].fullWord}"`,
-      explanation: `On associe simplement le radical et la terminaison trouvés.`
+      title: isCompoundTense ? 'Assembler : Auxiliaire + Participe' : 'Assembler : Radical + Terminaison',
+      mathNotation: `"${fullTable[selectedPronoun].stem.trim()}" + "${fullTable[selectedPronoun].ending}" = "${fullTable[selectedPronoun].fullWord}"`,
+      explanation: isCompoundTense
+        ? `On associe l'auxiliaire conjugué "${fullTable[selectedPronoun].stem.trim()}" et le participe passé "${fullTable[selectedPronoun].ending}".`
+        : `On associe simplement le radical et la terminaison trouvés.`
     },
     {
       stepNumber: 5,
-      title: 'Vérification phonétique (Élision)',
-      mathNotation: isVowelStart && selectedPronoun === 'je' ? "Je + Voyelle = J'" : 'Prononciation directe (pas d’élision)',
-      explanation: isVowelStart && selectedPronoun === 'je'
-        ? `Le radical commence par la voyelle "${verb.infinitive[0]}". On remplace "Je" par "J'".`
-        : `Aucune voyelle ne se heurte. La forme obtenue est validée.`
+      title: isCompoundTense && isEtre ? 'Règle d’Accord avec ÊTRE' : 'Vérification phonétique & Élision',
+      mathNotation: isCompoundTense && isEtre 
+        ? `Sujet "${selectedPronoun}" ⟶ Accord : ${fullTable[selectedPronoun].ending}`
+        : (isVowelStart && selectedPronoun === 'je' ? "Je + Voyelle = J'" : 'Prononciation directe (pas d’élision)'),
+      explanation: isCompoundTense && isEtre
+        ? `Théorème d'accord : Tout verbe conjugué avec ÊTRE s'accorde obligatoirement avec le sujet (e au féminin, s au pluriel, es au féminin pluriel).`
+        : (isVowelStart && selectedPronoun === 'je'
+            ? `Le radical commence par la voyelle "${verb.infinitive[0]}". On remplace "Je" par "J'".`
+            : `Aucune voyelle ne se heurte. La forme obtenue est validée.`)
     }
   ];
 
@@ -364,8 +518,9 @@ function getStemFormulaNotation(verb: VerbConjugationData, tense: TenseKey): str
     case 'subjonctif_present':
       return `Radical "Ils" = "${verb.stems.ilsPresent || verb.stems.base}-" | Radical "Nous" = "${verb.stems.nousPresent}-"`;
     case 'passe_compose':
+      return `Auxiliaire = ${verb.auxiliary.toUpperCase()} (${verb.auxiliary === 'être' ? 'Maison d’Être' : 'Règle Générale'}) + Participe = "${verb.pastParticiple}"`;
     case 'plus_que_parfait':
-      return `Auxiliaire = ${verb.auxiliary.toUpperCase()} + Participe = "${verb.pastParticiple}"`;
+      return `Auxiliaire = ${verb.auxiliary.toUpperCase()} à l’imparfait + Participe = "${verb.pastParticiple}"`;
     default:
       return `Radical = "${verb.stems.base}-"`;
   }
@@ -383,9 +538,15 @@ function getStemExplanation(verb: VerbConjugationData, tense: TenseKey): string 
     case 'conditionnel_present':
       return `Règle du conditionnel : on prend le radical du futur "${verb.stems.futureStem}-" et on ajoute les terminaisons de l’imparfait (-ais, -ais, -ait, -ions, -iez, -aient).`;
     case 'passe_compose':
-      return `On utilise l’auxiliaire ${verb.auxiliary.toUpperCase()} au présent + le participe passé "${verb.pastParticiple}".`;
+      if (verb.auxiliary === 'être') {
+        return `Verbe de déplacement ou d’état (La Maison d’Être : aller, venir, partir, arriver, etc.) ou verbe pronominal : on utilise obligatoirement l’auxiliaire ÊTRE au présent (suis, es, est, sommes, êtes, sont) + le participe passé "${verb.pastParticiple}", avec accord du sujet !`;
+      }
+      return `Verbe d’action : on utilise l’auxiliaire AVOIR au présent (ai, as, a, avons, avez, ont) + le participe passé "${verb.pastParticiple}". Le participe reste invariable avec le sujet.`;
     case 'plus_que_parfait':
-      return `On utilise l’auxiliaire ${verb.auxiliary.toUpperCase()} à l’imparfait + le participe passé "${verb.pastParticiple}".`;
+      if (verb.auxiliary === 'être') {
+        return `On utilise l’auxiliaire ÊTRE à l’imparfait (étais, étais, était, étions, étiez, étaient) + le participe passé "${verb.pastParticiple}" (avec accord du sujet).`;
+      }
+      return `On utilise l’auxiliaire AVOIR à l’imparfait (avais, avais, avait, avions, aviez, avaient) + le participe passé "${verb.pastParticiple}".`;
     case 'subjonctif_present':
       return `Pour je, tu, il, ils : radical de "Ils" ("${verb.stems.ilsPresent || verb.stems.base}-"). Pour nous et vous : radical de "Nous" ("${verb.stems.nousPresent}-").`;
     default:

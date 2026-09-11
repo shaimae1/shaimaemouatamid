@@ -13,16 +13,18 @@ export const ConjugationSolver: React.FC = () => {
 
   // Quick verbs chips
   const quickVerbs = [
-    { label: 'Parler', group: 'G1', verb: 'parler' },
-    { label: 'Finir', group: 'G2', verb: 'finir' },
-    { label: 'Être', group: 'G3', verb: 'être' },
-    { label: 'Avoir', group: 'G3', verb: 'avoir' },
-    { label: 'Aller', group: 'G3', verb: 'aller' },
-    { label: 'Faire', group: 'G3', verb: 'faire' },
-    { label: 'Prendre', group: 'G3', verb: 'prendre' },
-    { label: 'Pouvoir', group: 'G3', verb: 'pouvoir' },
-    { label: 'Vouloir', group: 'G3', verb: 'vouloir' },
-    { label: 'Venir', group: 'G3', verb: 'venir' }
+    { label: 'Parler', group: 'G1', verb: 'parler', aux: 'avoir' },
+    { label: 'Finir', group: 'G2', verb: 'finir', aux: 'avoir' },
+    { label: 'Partir', group: 'G3', verb: 'partir', aux: 'être' },
+    { label: 'Arriver', group: 'G1', verb: 'arriver', aux: 'être' },
+    { label: 'Aller', group: 'G3', verb: 'aller', aux: 'être' },
+    { label: 'Venir', group: 'G3', verb: 'venir', aux: 'être' },
+    { label: 'Sortir', group: 'G3', verb: 'sortir', aux: 'être' },
+    { label: 'Tomber', group: 'G1', verb: 'tomber', aux: 'être' },
+    { label: 'Être', group: 'G3', verb: 'être', aux: 'avoir' },
+    { label: 'Avoir', group: 'G3', verb: 'avoir', aux: 'avoir' },
+    { label: 'Prendre', group: 'G3', verb: 'prendre', aux: 'avoir' },
+    { label: 'Faire', group: 'G3', verb: 'faire', aux: 'avoir' }
   ];
 
   const currentVerb = useMemo(() => {
@@ -34,6 +36,8 @@ export const ConjugationSolver: React.FC = () => {
   }, [currentVerb, selectedTense, selectedPronoun]);
 
   const tensesList = Object.values(TENSES_INFO);
+  const isCompoundTense = selectedTense === 'passe_compose' || selectedTense === 'plus_que_parfait';
+  const isEtreVerb = currentVerb.auxiliary === 'être';
 
   return (
     <div className="space-y-8">
@@ -76,6 +80,11 @@ export const ConjugationSolver: React.FC = () => {
                 }`}>
                   {item.group}
                 </span>
+                {item.aux === 'être' && (
+                  <span className="text-[9px] px-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                    ÊTRE
+                  </span>
+                )}
               </button>
             ))}
           </div>
@@ -95,20 +104,28 @@ export const ConjugationSolver: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Ex: chanter, finir, aller, prendre, boire..."
+              placeholder="Ex: partir, arriver, sortir, tomber, parler, finir..."
               className="w-full pl-9 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
             />
           </div>
           {currentVerb && (
-            <div className="mt-3 flex items-center justify-between text-xs pt-2 border-t border-slate-800/80">
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-2 text-xs pt-2 border-t border-slate-800/80">
               <span className="text-slate-400">
                 Groupe : <strong className="text-emerald-400">{currentVerb.group}</strong>
                 {currentVerb.translationDarija && (
-                  <span className="ml-2 text-indigo-300">({currentVerb.translationDarija})</span>
+                  <span className="ml-1.5 text-indigo-300">({currentVerb.translationDarija})</span>
                 )}
               </span>
-              <span className="text-slate-400">
-                Auxiliaire : <strong className="text-indigo-400">{currentVerb.auxiliary.toUpperCase()}</strong>
+              <span className="flex items-center gap-1.5">
+                <span className="text-slate-400">Auxiliaire :</span>
+                <span className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                  currentVerb.auxiliary === 'être'
+                    ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40'
+                    : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40'
+                }`}>
+                  {currentVerb.auxiliary.toUpperCase()}
+                  {currentVerb.auxiliary === 'être' ? ' 🏠' : ''}
+                </span>
               </span>
             </div>
           )}
@@ -192,7 +209,11 @@ export const ConjugationSolver: React.FC = () => {
         {/* Equation Display (Simple logical decomposition) */}
         <div className="flex flex-col items-center justify-center py-6 px-4 bg-slate-950/80 rounded-xl border border-slate-800/80 text-center">
           <div className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-4">
-            Règle : Verbe = Radical + Terminaison
+            {isCompoundTense
+              ? (isEtreVerb 
+                  ? 'Règle : Verbe = Pronom + Auxiliaire ÊTRE + Participe (Accord avec le Sujet)'
+                  : 'Règle : Verbe = Pronom + Auxiliaire AVOIR + Participe Passé')
+              : 'Règle : Verbe = Radical + Terminaison'}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-lg sm:text-2xl lg:text-3xl font-bold">
@@ -206,22 +227,26 @@ export const ConjugationSolver: React.FC = () => {
 
             <span className="text-slate-500 font-mono-math">+</span>
 
-            {/* Radical */}
+            {/* Radical / Auxiliaire */}
             <div className="flex flex-col items-center">
               <span className="px-3 py-1.5 rounded-lg bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-mono-math">
                 {solved.stemUsed || '∅'}
               </span>
-              <span className="text-[10px] text-cyan-400/80 mt-1 uppercase tracking-wider font-semibold">Radical (Base)</span>
+              <span className="text-[10px] text-cyan-400/80 mt-1 uppercase tracking-wider font-semibold">
+                {isCompoundTense ? (isEtreVerb ? 'Auxiliaire ÊTRE' : 'Auxiliaire AVOIR') : 'Radical (Base)'}
+              </span>
             </div>
 
             <span className="text-slate-500 font-mono-math">+</span>
 
-            {/* Terminaison */}
+            {/* Terminaison / Participe */}
             <div className="flex flex-col items-center">
               <span className="px-3 py-1.5 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-mono-math">
                 {solved.endingUsed || '∅'}
               </span>
-              <span className="text-[10px] text-emerald-400/80 mt-1 uppercase tracking-wider font-semibold">Terminaison</span>
+              <span className="text-[10px] text-emerald-400/80 mt-1 uppercase tracking-wider font-semibold">
+                {isCompoundTense ? (isEtreVerb ? 'Participe (Accordé)' : 'Participe Passé') : 'Terminaison'}
+              </span>
             </div>
 
             <span className="text-slate-400 font-mono-math font-extrabold text-2xl sm:text-3xl">=</span>
@@ -235,7 +260,14 @@ export const ConjugationSolver: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-6 text-xs text-slate-300 max-w-xl text-center leading-relaxed">
+          {isCompoundTense && isEtreVerb && (
+            <div className="mt-4 px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs flex items-center gap-2">
+              <span>🏠</span>
+              <span><strong>Maison d’Être :</strong> Le participe passé s’accorde toujours en genre et en nombre avec le sujet ({solved.pronounLabel}).</span>
+            </div>
+          )}
+
+          <div className="mt-5 text-xs text-slate-300 max-w-xl text-center leading-relaxed">
             {solved.tenseInfo.formulaDescription}
           </div>
         </div>

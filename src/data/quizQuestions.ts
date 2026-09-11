@@ -93,5 +93,27 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     correctAnswer: 'Futur = -ai (verbe Avoir) | Conditionnel = -ais (Imparfait)',
     solutionProof: 'Le futur utilise la terminaison de AVOIR ("j’ai" ⟶ "-ai") : j’aimerai. Le conditionnel utilise la terminaison de l’imparfait ("-ais") : j’aimerais.',
     difficulty: 'moyen'
+  },
+  {
+    id: 'q9',
+    type: 'boolean_agreement',
+    title: 'Maison d’Être : Verbe PARTIR au Passé Composé',
+    equation: 'Sujet "Elle" + Auxiliaire ÊTRE + Participe accordé = ?',
+    questionText: 'Quel est le passé composé correct de la phrase : « Elle [partir] hier soir » ?',
+    options: ['Elle est partie', 'Elle a parti', 'Elle est parti', 'Elle a partie'],
+    correctAnswer: 'Elle est partie',
+    solutionProof: 'PARTIR est un verbe de déplacement de la Maison d’Être : il utilise obligatoirement l’auxiliaire ÊTRE au présent (« est ») et son participe passé s’accorde en genre avec le sujet « Elle » (féminin ⟶ « partie »).',
+    difficulty: 'facile'
+  },
+  {
+    id: 'q10',
+    type: 'boolean_agreement',
+    title: 'Accord du Sujet au Pluriel avec ÊTRE',
+    equation: 'Sujet "Mes amis" (masc. pluriel) + Auxiliaire ÊTRE + Participe = ?',
+    questionText: 'Dans la phrase : « Mes amis [arriver] à l’heure », quelle est la forme correcte ?',
+    options: ['sont arrivés', 'ont arrivé', 'sont arrivé', 'ont arrivés'],
+    correctAnswer: 'sont arrivés',
+    solutionProof: 'ARRIVER est un verbe de mouvement qui prend obligatoirement l’auxiliaire ÊTRE (« sont ») et s’accorde au pluriel avec le sujet masculin pluriel « Mes amis » ⟶ « sont arrivés ».',
+    difficulty: 'moyen'
   }
 ];

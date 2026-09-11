@@ -148,20 +148,24 @@ export const UniversalMatrix: React.FC = () => {
         <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 space-y-2 text-xs">
           <div className="font-bold text-slate-200 uppercase tracking-wider flex items-center gap-1.5">
             <Bookmark className="w-4 h-4 text-indigo-400" />
-            Rappel des 3 règles essentielles :
+            Rappel des 4 règles essentielles :
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-1">
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
               <strong className="text-emerald-400 block mb-0.5">1. Imparfait (Toujours les mêmes)</strong>
               <span className="text-slate-300">Terminaisons : -ais, -ais, -ait, -ions, -iez, -aient pour tous les verbes sans exception.</span>
             </div>
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
-              <strong className="text-indigo-400 block mb-0.5">2. Futur Simple (Comme le verbe Avoir)</strong>
+              <strong className="text-indigo-400 block mb-0.5">2. Futur Simple (Comme Avoir)</strong>
               <span className="text-slate-300">Terminaisons : -ai, -as, -a, -ons, -ez, -ont (issues du verbe AVOIR au présent).</span>
             </div>
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
               <strong className="text-purple-400 block mb-0.5">3. Conditionnel Présent</strong>
-              <span className="text-slate-300">Conditionnel = Radical du Futur + Terminaisons de l’Imparfait.</span>
+              <span className="text-slate-300">Formule = Radical du Futur + Terminaisons de l’Imparfait (-ais, -ais, -ait...).</span>
+            </div>
+            <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800">
+              <strong className="text-amber-400 block mb-0.5">4. Passé Composé (ÊTRE vs AVOIR)</strong>
+              <span className="text-slate-300">Maison d’Être (16 verbes) & pronominaux : auxiliaire ÊTRE + accord sujet. Action : AVOIR.</span>
             </div>
           </div>
         </div>

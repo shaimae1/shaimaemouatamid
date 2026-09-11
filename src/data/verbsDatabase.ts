@@ -1377,5 +1377,1369 @@ export const VERBS_DATABASE: VerbConjugationData[] = [
       'Insertion du phonème de liaison /v/ : "écrivons" ⟹ R_{imp} = "écriv-".',
       'Imparfait = "écriv-" + [-ais, -ais, -ait, -ions, -iez, -aient]. Démonstration vérifiée !'
     ]
+  },
+  // --- VERBES AVEC L'AUXILIAIRE ÊTRE (La Maison d'Être / Mouvement & État) ---
+  {
+    infinitive: 'partir',
+    meaningFr: 'Quitter un lieu pour aller ailleurs (Maison d’Être)',
+    translationDarija: 'Mcha / Safr (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'parti',
+    regular: false,
+    stems: {
+      base: 'par',
+      nousPresent: 'part',
+      ilsPresent: 'part',
+      futureStem: 'partir',
+      passeSimpleStem: 'part'
+    },
+    conjugations: {
+      present: {
+        je: 'pars',
+        tu: 'pars',
+        il: 'part',
+        nous: 'partons',
+        vous: 'partez',
+        ils: 'partent'
+      },
+      imparfait: {
+        je: 'partais',
+        tu: 'partais',
+        il: 'partait',
+        nous: 'partions',
+        vous: 'partiez',
+        ils: 'partaient'
+      },
+      futur_simple: {
+        je: 'partirai',
+        tu: 'partiras',
+        il: 'partira',
+        nous: 'partirons',
+        vous: 'partirez',
+        ils: 'partiront'
+      },
+      conditionnel_present: {
+        je: 'partirais',
+        tu: 'partirais',
+        il: 'partirait',
+        nous: 'partirions',
+        vous: 'partiriez',
+        ils: 'partiraient'
+      },
+      passe_compose: {
+        je: 'suis parti(e)',
+        tu: 'es parti(e)',
+        il: 'est parti',
+        nous: 'sommes parti(e)s',
+        vous: 'êtes parti(e)(s)',
+        ils: 'sont partis'
+      },
+      plus_que_parfait: {
+        je: 'étais parti(e)',
+        tu: 'étais parti(e)',
+        il: 'était parti',
+        nous: 'étions parti(e)s',
+        vous: 'étiez parti(e)(s)',
+        ils: 'étaient partis'
+      },
+      subjonctif_present: {
+        je: 'parte',
+        tu: 'partes',
+        il: 'parte',
+        nous: 'partions',
+        vous: 'partiez',
+        ils: 'partent'
+      },
+      passe_simple: {
+        je: 'partis',
+        tu: 'partis',
+        il: 'partit',
+        nous: 'partîmes',
+        vous: 'partîtes',
+        ils: 'partirent'
+      },
+      imperatif_present: {
+        tu: 'pars',
+        nous: 'partons',
+        vous: 'partez'
+      }
+    },
+    mathematicalNotes: [
+      'Auxiliaire ÊTRE obligatoire : verbe de mouvement (Maison d’Être).',
+      'Accord du participe passé avec le sujet : Elle est partie (-e), Ils sont partis (-s).',
+      'Imparfait déduit de Nous : "partons" - "ons" = "part-" + [-ais, -ais, -ait, -ions, -iez, -aient].'
+    ]
+  },
+  {
+    infinitive: 'sortir',
+    meaningFr: 'Passer de l’intérieur vers l’extérieur (Maison d’Être)',
+    translationDarija: 'Khrej (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'sorti',
+    regular: false,
+    stems: {
+      base: 'sor',
+      nousPresent: 'sort',
+      ilsPresent: 'sort',
+      futureStem: 'sortir',
+      passeSimpleStem: 'sort'
+    },
+    conjugations: {
+      present: {
+        je: 'sors',
+        tu: 'sors',
+        il: 'sort',
+        nous: 'sortons',
+        vous: 'sortez',
+        ils: 'sortent'
+      },
+      imparfait: {
+        je: 'sortais',
+        tu: 'sortais',
+        il: 'sortait',
+        nous: 'sortions',
+        vous: 'sortiez',
+        ils: 'sortaient'
+      },
+      futur_simple: {
+        je: 'sortirai',
+        tu: 'sortiras',
+        il: 'sortira',
+        nous: 'sortirons',
+        vous: 'sortirez',
+        ils: 'sortiront'
+      },
+      conditionnel_present: {
+        je: 'sortirais',
+        tu: 'sortirais',
+        il: 'sortirait',
+        nous: 'sortirions',
+        vous: 'sortiriez',
+        ils: 'sortiraient'
+      },
+      passe_compose: {
+        je: 'suis sorti(e)',
+        tu: 'es sorti(e)',
+        il: 'est sorti',
+        nous: 'sommes sorti(e)s',
+        vous: 'êtes sorti(e)(s)',
+        ils: 'sont sortis'
+      },
+      plus_que_parfait: {
+        je: 'étais sorti(e)',
+        tu: 'étais sorti(e)',
+        il: 'était sorti',
+        nous: 'étions sorti(e)s',
+        vous: 'étiez sorti(e)(s)',
+        ils: 'étaient sortis'
+      },
+      subjonctif_present: {
+        je: 'sorte',
+        tu: 'sortes',
+        il: 'sorte',
+        nous: 'sortions',
+        vous: 'sortiez',
+        ils: 'sortent'
+      },
+      passe_simple: {
+        je: 'sortis',
+        tu: 'sortis',
+        il: 'sortit',
+        nous: 'sortîmes',
+        vous: 'sortîtes',
+        ils: 'sortirent'
+      },
+      imperatif_present: {
+        tu: 'sors',
+        nous: 'sortons',
+        vous: 'sortez'
+      }
+    },
+    mathematicalNotes: [
+      'Auxiliaire ÊTRE : mouvement vers l’extérieur.',
+      'Participe passé "sorti", accordé avec le sujet : Elle est sortie, Ils sont sortis.'
+    ]
+  },
+  {
+    infinitive: 'arriver',
+    meaningFr: 'Parvenir au lieu de destination (Maison d’Être)',
+    translationDarija: 'Wsel (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'arrivé',
+    regular: true,
+    stems: {
+      base: 'arriv',
+      nousPresent: 'arriv',
+      ilsPresent: 'arriv',
+      futureStem: 'arriver',
+      passeSimpleStem: 'arriv'
+    },
+    conjugations: {
+      present: {
+        je: 'arrive',
+        tu: 'arrives',
+        il: 'arrive',
+        nous: 'arrivons',
+        vous: 'arrivez',
+        ils: 'arrivent'
+      },
+      imparfait: {
+        je: 'arrivais',
+        tu: 'arrivais',
+        il: 'arrivait',
+        nous: 'arrivions',
+        vous: 'arriviez',
+        ils: 'arrivaient'
+      },
+      futur_simple: {
+        je: 'arriverai',
+        tu: 'arriveras',
+        il: 'arrivera',
+        nous: 'arriverons',
+        vous: 'arriverez',
+        ils: 'arriveront'
+      },
+      conditionnel_present: {
+        je: 'arriverais',
+        tu: 'arriverais',
+        il: 'arriverait',
+        nous: 'arriverions',
+        vous: 'arriveriez',
+        ils: 'arriveraient'
+      },
+      passe_compose: {
+        je: 'suis arrivé(e)',
+        tu: 'es arrivé(e)',
+        il: 'est arrivé',
+        nous: 'sommes arrivé(e)s',
+        vous: 'êtes arrivé(e)(s)',
+        ils: 'sont arrivés'
+      },
+      plus_que_parfait: {
+        je: 'étais arrivé(e)',
+        tu: 'étais arrivé(e)',
+        il: 'était arrivé',
+        nous: 'étions arrivé(e)s',
+        vous: 'étiez arrivé(e)(s)',
+        ils: 'étaient arrivés'
+      },
+      subjonctif_present: {
+        je: 'arrive',
+        tu: 'arrives',
+        il: 'arrive',
+        nous: 'arrivions',
+        vous: 'arriviez',
+        ils: 'arrivent'
+      },
+      passe_simple: {
+        je: 'arrivai',
+        tu: 'arrivas',
+        il: 'arriva',
+        nous: 'arrivâmes',
+        vous: 'arrivâtes',
+        ils: 'arrivèrent'
+      },
+      imperatif_present: {
+        tu: 'arrive',
+        nous: 'arrivons',
+        vous: 'arrivez'
+      }
+    },
+    mathematicalNotes: [
+      'G1 régulier en -er mais utilisant l’auxiliaire ÊTRE au passé composé.',
+      'Élision au présent : J’arrive. Au passé composé : Je suis arrivé(e).'
+    ]
+  },
+  {
+    infinitive: 'tomber',
+    meaningFr: 'Être entraîné de haut en bas par son poids (Maison d’Être)',
+    translationDarija: 'Ttah (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'tombé',
+    regular: true,
+    stems: {
+      base: 'tomb',
+      nousPresent: 'tomb',
+      ilsPresent: 'tomb',
+      futureStem: 'tomber',
+      passeSimpleStem: 'tomb'
+    },
+    conjugations: {
+      present: {
+        je: 'tombe',
+        tu: 'tombes',
+        il: 'tombe',
+        nous: 'tombons',
+        vous: 'tombez',
+        ils: 'tombent'
+      },
+      imparfait: {
+        je: 'tombais',
+        tu: 'tombais',
+        il: 'tombait',
+        nous: 'tombions',
+        vous: 'tombiez',
+        ils: 'tombaient'
+      },
+      futur_simple: {
+        je: 'tomberai',
+        tu: 'tomberas',
+        il: 'tombera',
+        nous: 'tomberons',
+        vous: 'tomberez',
+        ils: 'tomberont'
+      },
+      conditionnel_present: {
+        je: 'tomberais',
+        tu: 'tomberais',
+        il: 'tomberait',
+        nous: 'tomberions',
+        vous: 'tomberiez',
+        ils: 'tomberaient'
+      },
+      passe_compose: {
+        je: 'suis tombé(e)',
+        tu: 'es tombé(e)',
+        il: 'est tombé',
+        nous: 'sommes tombé(e)s',
+        vous: 'êtes tombé(e)(s)',
+        ils: 'sont tombés'
+      },
+      plus_que_parfait: {
+        je: 'étais tombé(e)',
+        tu: 'étais tombé(e)',
+        il: 'était tombé',
+        nous: 'étions tombé(e)s',
+        vous: 'étiez tombé(e)(s)',
+        ils: 'étaient tombés'
+      },
+      subjonctif_present: {
+        je: 'tombe',
+        tu: 'tombes',
+        il: 'tombe',
+        nous: 'tombions',
+        vous: 'tombiez',
+        ils: 'tombent'
+      },
+      passe_simple: {
+        je: 'tombai',
+        tu: 'tombas',
+        il: 'tomba',
+        nous: 'tombâmes',
+        vous: 'tombâtes',
+        ils: 'tombèrent'
+      },
+      imperatif_present: {
+        tu: 'tombe',
+        nous: 'tombons',
+        vous: 'tombez'
+      }
+    },
+    mathematicalNotes: [
+      'Verbe de la Maison d’Être : "Je suis tombé(e)".',
+      'Accord obligatoire avec le sujet.'
+    ]
+  },
+  {
+    infinitive: 'monter',
+    meaningFr: 'Aller du bas vers le haut (Maison d’Être)',
+    translationDarija: 'Tle3 (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'monté',
+    regular: true,
+    stems: {
+      base: 'mont',
+      nousPresent: 'mont',
+      ilsPresent: 'mont',
+      futureStem: 'monter',
+      passeSimpleStem: 'mont'
+    },
+    conjugations: {
+      present: {
+        je: 'monte',
+        tu: 'montes',
+        il: 'monte',
+        nous: 'montons',
+        vous: 'montez',
+        ils: 'montent'
+      },
+      imparfait: {
+        je: 'montais',
+        tu: 'montais',
+        il: 'montait',
+        nous: 'montions',
+        vous: 'montiez',
+        ils: 'montaient'
+      },
+      futur_simple: {
+        je: 'monterai',
+        tu: 'monteras',
+        il: 'montera',
+        nous: 'monterons',
+        vous: 'monterez',
+        ils: 'monteront'
+      },
+      conditionnel_present: {
+        je: 'monterais',
+        tu: 'monterais',
+        il: 'monterait',
+        nous: 'monterions',
+        vous: 'monteriez',
+        ils: 'monteraient'
+      },
+      passe_compose: {
+        je: 'suis monté(e)',
+        tu: 'es monté(e)',
+        il: 'est monté',
+        nous: 'sommes monté(e)s',
+        vous: 'êtes monté(e)(s)',
+        ils: 'sont montés'
+      },
+      plus_que_parfait: {
+        je: 'étais monté(e)',
+        tu: 'étais monté(e)',
+        il: 'était monté',
+        nous: 'étions monté(e)s',
+        vous: 'étiez monté(e)(s)',
+        ils: 'étaient montés'
+      },
+      subjonctif_present: {
+        je: 'monte',
+        tu: 'montes',
+        il: 'monte',
+        nous: 'montions',
+        vous: 'montiez',
+        ils: 'montent'
+      },
+      passe_simple: {
+        je: 'montai',
+        tu: 'montas',
+        il: 'monta',
+        nous: 'montâmes',
+        vous: 'montâtes',
+        ils: 'montèrent'
+      },
+      imperatif_present: {
+        tu: 'monte',
+        nous: 'montons',
+        vous: 'montez'
+      }
+    },
+    mathematicalNotes: [
+      'Intransitif (mouvement) : utilise l’auxiliaire ÊTRE.',
+      'Participe passé accordé avec le sujet : Elle est montée.'
+    ]
+  },
+  {
+    infinitive: 'descendre',
+    meaningFr: 'Aller du haut vers le bas (Maison d’Être)',
+    translationDarija: 'Hbet / Nzel (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'descendu',
+    regular: false,
+    stems: {
+      base: 'descend',
+      nousPresent: 'descend',
+      ilsPresent: 'descend',
+      futureStem: 'descendr',
+      passeSimpleStem: 'descend'
+    },
+    conjugations: {
+      present: {
+        je: 'descends',
+        tu: 'descends',
+        il: 'descend',
+        nous: 'descendons',
+        vous: 'descendez',
+        ils: 'descendent'
+      },
+      imparfait: {
+        je: 'descendais',
+        tu: 'descendais',
+        il: 'descendait',
+        nous: 'descendions',
+        vous: 'descendiez',
+        ils: 'descendaient'
+      },
+      futur_simple: {
+        je: 'descendrai',
+        tu: 'descendras',
+        il: 'descendra',
+        nous: 'descendrons',
+        vous: 'descendrez',
+        ils: 'descendront'
+      },
+      conditionnel_present: {
+        je: 'descendrais',
+        tu: 'descendrais',
+        il: 'descendrait',
+        nous: 'descendrions',
+        vous: 'descendriez',
+        ils: 'descendraient'
+      },
+      passe_compose: {
+        je: 'suis descendu(e)',
+        tu: 'es descendu(e)',
+        il: 'est descendu',
+        nous: 'sommes descendu(e)s',
+        vous: 'êtes descendu(e)(s)',
+        ils: 'sont descendus'
+      },
+      plus_que_parfait: {
+        je: 'étais descendu(e)',
+        tu: 'étais descendu(e)',
+        il: 'était descendu',
+        nous: 'étions descendu(e)s',
+        vous: 'étiez descendu(e)(s)',
+        ils: 'étaient descendus'
+      },
+      subjonctif_present: {
+        je: 'descende',
+        tu: 'descendes',
+        il: 'descende',
+        nous: 'descendions',
+        vous: 'descendiez',
+        ils: 'descendent'
+      },
+      passe_simple: {
+        je: 'descendis',
+        tu: 'descendis',
+        il: 'descendit',
+        nous: 'descendîmes',
+        vous: 'descendîtes',
+        ils: 'descendirent'
+      },
+      imperatif_present: {
+        tu: 'descends',
+        nous: 'descendons',
+        vous: 'descendez'
+      }
+    },
+    mathematicalNotes: [
+      'G3 avec terminaison en -du au participe passé.',
+      'Auxiliaire ÊTRE avec accord : Elle est descendue.'
+    ]
+  },
+  {
+    infinitive: 'entrer',
+    meaningFr: 'Passer de l’extérieur à l’intérieur (Maison d’Être)',
+    translationDarija: 'Dkhel (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'entré',
+    regular: true,
+    stems: {
+      base: 'entr',
+      nousPresent: 'entr',
+      ilsPresent: 'entr',
+      futureStem: 'entrer',
+      passeSimpleStem: 'entr'
+    },
+    conjugations: {
+      present: {
+        je: 'entre',
+        tu: 'entres',
+        il: 'entre',
+        nous: 'entrons',
+        vous: 'entrez',
+        ils: 'entrent'
+      },
+      imparfait: {
+        je: 'entrais',
+        tu: 'entrais',
+        il: 'entrait',
+        nous: 'entrions',
+        vous: 'entriez',
+        ils: 'entraient'
+      },
+      futur_simple: {
+        je: 'entrerai',
+        tu: 'entreras',
+        il: 'entrera',
+        nous: 'entrerons',
+        vous: 'entrerez',
+        ils: 'entreront'
+      },
+      conditionnel_present: {
+        je: 'entrerais',
+        tu: 'entrerais',
+        il: 'entrerait',
+        nous: 'entrerions',
+        vous: 'entreriez',
+        ils: 'entreraient'
+      },
+      passe_compose: {
+        je: 'suis entré(e)',
+        tu: 'es entré(e)',
+        il: 'est entré',
+        nous: 'sommes entré(e)s',
+        vous: 'êtes entré(e)(s)',
+        ils: 'sont entrés'
+      },
+      plus_que_parfait: {
+        je: 'étais entré(e)',
+        tu: 'étais entré(e)',
+        il: 'était entré',
+        nous: 'étions entré(e)s',
+        vous: 'étiez entré(e)(s)',
+        ils: 'étaient entrés'
+      },
+      subjonctif_present: {
+        je: 'entre',
+        tu: 'entres',
+        il: 'entre',
+        nous: 'entrions',
+        vous: 'entriez',
+        ils: 'entrent'
+      },
+      passe_simple: {
+        je: 'entrai',
+        tu: 'entras',
+        il: 'entra',
+        nous: 'entrâmes',
+        vous: 'entrâtes',
+        ils: 'entrèrent'
+      },
+      imperatif_present: {
+        tu: 'entre',
+        nous: 'entrons',
+        vous: 'entrez'
+      }
+    },
+    mathematicalNotes: [
+      'Verbe de déplacement vers l’intérieur (Maison d’Être).',
+      'Auxiliaire ÊTRE : "Je suis entré(e)".'
+    ]
+  },
+  {
+    infinitive: 'rentrer',
+    meaningFr: 'Entrer de nouveau, revenir chez soi (Maison d’Être)',
+    translationDarija: 'Dkhel / Rje3 l dar (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'rentré',
+    regular: true,
+    stems: {
+      base: 'rentr',
+      nousPresent: 'rentr',
+      ilsPresent: 'rentr',
+      futureStem: 'rentrer',
+      passeSimpleStem: 'rentr'
+    },
+    conjugations: {
+      present: {
+        je: 'rentre',
+        tu: 'rentres',
+        il: 'rentre',
+        nous: 'rentrons',
+        vous: 'rentrez',
+        ils: 'rentrent'
+      },
+      imparfait: {
+        je: 'rentrais',
+        tu: 'rentrais',
+        il: 'rentrait',
+        nous: 'rentrions',
+        vous: 'rentriez',
+        ils: 'rentraient'
+      },
+      futur_simple: {
+        je: 'rentrerai',
+        tu: 'rentreras',
+        il: 'rentrera',
+        nous: 'rentrerons',
+        vous: 'rentrerez',
+        ils: 'rentreront'
+      },
+      conditionnel_present: {
+        je: 'rentrerais',
+        tu: 'rentrerais',
+        il: 'rentrerait',
+        nous: 'rentrerions',
+        vous: 'rentreriez',
+        ils: 'rentreraient'
+      },
+      passe_compose: {
+        je: 'suis rentré(e)',
+        tu: 'es rentré(e)',
+        il: 'est rentré',
+        nous: 'sommes rentré(e)s',
+        vous: 'êtes rentré(e)(s)',
+        ils: 'sont rentrés'
+      },
+      plus_que_parfait: {
+        je: 'étais rentré(e)',
+        tu: 'étais rentré(e)',
+        il: 'était rentré',
+        nous: 'étions rentré(e)s',
+        vous: 'étiez rentré(e)(s)',
+        ils: 'étaient rentrés'
+      },
+      subjonctif_present: {
+        je: 'rentre',
+        tu: 'rentres',
+        il: 'rentre',
+        nous: 'rentrions',
+        vous: 'rentriez',
+        ils: 'rentrent'
+      },
+      passe_simple: {
+        je: 'rentrai',
+        tu: 'rentras',
+        il: 'rentra',
+        nous: 'rentrâmes',
+        vous: 'rentrâtes',
+        ils: 'rentrèrent'
+      },
+      imperatif_present: {
+        tu: 'rentre',
+        nous: 'rentrons',
+        vous: 'rentrez'
+      }
+    },
+    mathematicalNotes: [
+      'Maison d’Être : "Nous sommes rentrés".'
+    ]
+  },
+  {
+    infinitive: 'rester',
+    meaningFr: 'Demeurer dans un même lieu ou état (Maison d’Être)',
+    translationDarija: 'Bqa / Gles (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'resté',
+    regular: true,
+    stems: {
+      base: 'rest',
+      nousPresent: 'rest',
+      ilsPresent: 'rest',
+      futureStem: 'rester',
+      passeSimpleStem: 'rest'
+    },
+    conjugations: {
+      present: {
+        je: 'reste',
+        tu: 'restes',
+        il: 'reste',
+        nous: 'restons',
+        vous: 'restez',
+        ils: 'restent'
+      },
+      imparfait: {
+        je: 'restais',
+        tu: 'restais',
+        il: 'restait',
+        nous: 'restions',
+        vous: 'restiez',
+        ils: 'restaient'
+      },
+      futur_simple: {
+        je: 'resterai',
+        tu: 'resteras',
+        il: 'restera',
+        nous: 'resterons',
+        vous: 'resterez',
+        ils: 'resteront'
+      },
+      conditionnel_present: {
+        je: 'resterais',
+        tu: 'resterais',
+        il: 'resterait',
+        nous: 'resterions',
+        vous: 'resteriez',
+        ils: 'resteraient'
+      },
+      passe_compose: {
+        je: 'suis resté(e)',
+        tu: 'es resté(e)',
+        il: 'est resté',
+        nous: 'sommes resté(e)s',
+        vous: 'êtes resté(e)(s)',
+        ils: 'sont restés'
+      },
+      plus_que_parfait: {
+        je: 'étais resté(e)',
+        tu: 'étais resté(e)',
+        il: 'était resté',
+        nous: 'étions resté(e)s',
+        vous: 'étiez resté(e)(s)',
+        ils: 'étaient restés'
+      },
+      subjonctif_present: {
+        je: 'reste',
+        tu: 'restes',
+        il: 'reste',
+        nous: 'restions',
+        vous: 'restiez',
+        ils: 'restent'
+      },
+      passe_simple: {
+        je: 'restai',
+        tu: 'restas',
+        il: 'resta',
+        nous: 'restâmes',
+        vous: 'restâtes',
+        ils: 'restèrent'
+      },
+      imperatif_present: {
+        tu: 'reste',
+        nous: 'restons',
+        vous: 'restez'
+      }
+    },
+    mathematicalNotes: [
+      'Verbe d’état de la Maison d’Être : "Elle est restée à la maison".'
+    ]
+  },
+  {
+    infinitive: 'retourner',
+    meaningFr: 'Aller de nouveau dans un lieu (Maison d’Être)',
+    translationDarija: 'Rje3 / 3awd mcha (Auxiliaire Être)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'retourné',
+    regular: true,
+    stems: {
+      base: 'retourn',
+      nousPresent: 'retourn',
+      ilsPresent: 'retourn',
+      futureStem: 'retourner',
+      passeSimpleStem: 'retourn'
+    },
+    conjugations: {
+      present: {
+        je: 'retourne',
+        tu: 'retournes',
+        il: 'retourne',
+        nous: 'retournons',
+        vous: 'retournez',
+        ils: 'retournent'
+      },
+      imparfait: {
+        je: 'retournais',
+        tu: 'retournais',
+        il: 'retournait',
+        nous: 'retournions',
+        vous: 'retourniez',
+        ils: 'retournaient'
+      },
+      futur_simple: {
+        je: 'retournerai',
+        tu: 'retourneras',
+        il: 'retournera',
+        nous: 'retournerons',
+        vous: 'retournerez',
+        ils: 'retourneront'
+      },
+      conditionnel_present: {
+        je: 'retournerais',
+        tu: 'retournerais',
+        il: 'retournerait',
+        nous: 'retournerions',
+        vous: 'retourneriez',
+        ils: 'retourneraient'
+      },
+      passe_compose: {
+        je: 'suis retourné(e)',
+        tu: 'es retourné(e)',
+        il: 'est retourné',
+        nous: 'sommes retourné(e)s',
+        vous: 'êtes retourné(e)(s)',
+        ils: 'sont retournés'
+      },
+      plus_que_parfait: {
+        je: 'étais retourné(e)',
+        tu: 'étais retourné(e)',
+        il: 'était retourné',
+        nous: 'étions retourné(e)s',
+        vous: 'étiez retourné(e)(s)',
+        ils: 'étaient retournés'
+      },
+      subjonctif_present: {
+        je: 'retourne',
+        tu: 'retournes',
+        il: 'retourne',
+        nous: 'retournions',
+        vous: 'retourniez',
+        ils: 'retournent'
+      },
+      passe_simple: {
+        je: 'retournai',
+        tu: 'retournas',
+        il: 'retourna',
+        nous: 'retournâmes',
+        vous: 'retournâtes',
+        ils: 'retournèrent'
+      },
+      imperatif_present: {
+        tu: 'retourne',
+        nous: 'retournons',
+        vous: 'retournez'
+      }
+    },
+    mathematicalNotes: [
+      'Mouvement : auxiliaire ÊTRE ("Ils sont retournés").'
+    ]
+  },
+  {
+    infinitive: 'naître',
+    meaningFr: 'Venir au monde, commencer à vivre (Maison d’Être)',
+    translationDarija: 'Tzad (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'né',
+    regular: false,
+    stems: {
+      base: 'nai',
+      nousPresent: 'naiss',
+      ilsPresent: 'naiss',
+      futureStem: 'naîtr',
+      passeSimpleStem: 'naqu'
+    },
+    conjugations: {
+      present: {
+        je: 'nais',
+        tu: 'nais',
+        il: 'naît',
+        nous: 'naissons',
+        vous: 'naissez',
+        ils: 'naissent'
+      },
+      imparfait: {
+        je: 'naissais',
+        tu: 'naissais',
+        il: 'naissait',
+        nous: 'naissions',
+        vous: 'naissiez',
+        ils: 'naissaient'
+      },
+      futur_simple: {
+        je: 'naîtrai',
+        tu: 'naîtras',
+        il: 'naîtra',
+        nous: 'naîtrons',
+        vous: 'naîtrez',
+        ils: 'naîtront'
+      },
+      conditionnel_present: {
+        je: 'naîtrais',
+        tu: 'naîtrais',
+        il: 'naîtrait',
+        nous: 'naîtrions',
+        vous: 'naîtriez',
+        ils: 'naîtraient'
+      },
+      passe_compose: {
+        je: 'suis né(e)',
+        tu: 'es né(e)',
+        il: 'est né',
+        nous: 'sommes né(e)s',
+        vous: 'êtes né(e)(s)',
+        ils: 'sont nés'
+      },
+      plus_que_parfait: {
+        je: 'étais né(e)',
+        tu: 'étais né(e)',
+        il: 'était né',
+        nous: 'étions né(e)s',
+        vous: 'étiez né(e)(s)',
+        ils: 'étaient nés'
+      },
+      subjonctif_present: {
+        je: 'naisse',
+        tu: 'naisses',
+        il: 'naisse',
+        nous: 'naissions',
+        vous: 'naissiez',
+        ils: 'naissent'
+      },
+      passe_simple: {
+        je: 'naquis',
+        tu: 'naquis',
+        il: 'naquit',
+        nous: 'naquîmes',
+        vous: 'naquîtes',
+        ils: 'naquirent'
+      },
+      imperatif_present: {
+        tu: 'nais',
+        nous: 'naissons',
+        vous: 'naissez'
+      }
+    },
+    mathematicalNotes: [
+      'Verbe de vie et d’état : auxiliaire ÊTRE obligatoire.',
+      'Participe passé très court : "né" ⟶ "Elle est née en 2010".'
+    ]
+  },
+  {
+    infinitive: 'mourir',
+    meaningFr: 'Cesser de vivre (Maison d’Être)',
+    translationDarija: 'Mat (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'mort',
+    regular: false,
+    stems: {
+      base: 'meur',
+      nousPresent: 'mour',
+      ilsPresent: 'meur',
+      futureStem: 'mourr',
+      passeSimpleStem: 'mour'
+    },
+    conjugations: {
+      present: {
+        je: 'meurs',
+        tu: 'meurs',
+        il: 'meurt',
+        nous: 'mourons',
+        vous: 'mourez',
+        ils: 'meurent'
+      },
+      imparfait: {
+        je: 'mourais',
+        tu: 'mourais',
+        il: 'mourait',
+        nous: 'mourions',
+        vous: 'mouriez',
+        ils: 'mouraient'
+      },
+      futur_simple: {
+        je: 'mourrai',
+        tu: 'mourras',
+        il: 'mourra',
+        nous: 'mourrons',
+        vous: 'mourrez',
+        ils: 'mourront'
+      },
+      conditionnel_present: {
+        je: 'mourrais',
+        tu: 'mourrais',
+        il: 'mourrait',
+        nous: 'mourrions',
+        vous: 'mourriez',
+        ils: 'mourraient'
+      },
+      passe_compose: {
+        je: 'suis mort(e)',
+        tu: 'es mort(e)',
+        il: 'est mort',
+        nous: 'sommes mort(e)s',
+        vous: 'êtes mort(e)(s)',
+        ils: 'sont morts'
+      },
+      plus_que_parfait: {
+        je: 'étais mort(e)',
+        tu: 'étais mort(e)',
+        il: 'était mort',
+        nous: 'étions mort(e)s',
+        vous: 'étiez mort(e)(s)',
+        ils: 'étaient morts'
+      },
+      subjonctif_present: {
+        je: 'meure',
+        tu: 'meures',
+        il: 'meure',
+        nous: 'mourions',
+        vous: 'mouriez',
+        ils: 'meurent'
+      },
+      passe_simple: {
+        je: 'mourus',
+        tu: 'mourus',
+        il: 'mourut',
+        nous: 'mourûmes',
+        vous: 'mourûtes',
+        ils: 'moururent'
+      },
+      imperatif_present: {
+        tu: 'meurs',
+        nous: 'mourons',
+        vous: 'mourez'
+      }
+    },
+    mathematicalNotes: [
+      'Antonyme de naître : auxiliaire ÊTRE.',
+      'Participe passé "mort" avec accord : "Elle est morte".'
+    ]
+  },
+  {
+    infinitive: 'devenir',
+    meaningFr: 'Passer d’un état à un autre (Maison d’Être)',
+    translationDarija: 'Wlla (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'devenu',
+    regular: false,
+    stems: {
+      base: 'devien',
+      nousPresent: 'deven',
+      ilsPresent: 'devienn',
+      futureStem: 'deviendr',
+      passeSimpleStem: 'dev'
+    },
+    conjugations: {
+      present: {
+        je: 'deviens',
+        tu: 'deviens',
+        il: 'devient',
+        nous: 'devenons',
+        vous: 'devenez',
+        ils: 'deviennent'
+      },
+      imparfait: {
+        je: 'devenais',
+        tu: 'devenais',
+        il: 'devenait',
+        nous: 'devenions',
+        vous: 'deveniez',
+        ils: 'devenaient'
+      },
+      futur_simple: {
+        je: 'deviendrai',
+        tu: 'deviendras',
+        il: 'deviendra',
+        nous: 'deviendrons',
+        vous: 'deviendrez',
+        ils: 'deviendront'
+      },
+      conditionnel_present: {
+        je: 'deviendrais',
+        tu: 'deviendrais',
+        il: 'deviendrait',
+        nous: 'deviendrions',
+        vous: 'deviendriez',
+        ils: 'deviendraient'
+      },
+      passe_compose: {
+        je: 'suis devenu(e)',
+        tu: 'es devenu(e)',
+        il: 'est devenu',
+        nous: 'sommes devenu(e)s',
+        vous: 'êtes devenu(e)(s)',
+        ils: 'sont devenus'
+      },
+      plus_que_parfait: {
+        je: 'étais devenu(e)',
+        tu: 'étais devenu(e)',
+        il: 'était devenu',
+        nous: 'étions devenu(e)s',
+        vous: 'étiez devenu(e)(s)',
+        ils: 'étaient devenus'
+      },
+      subjonctif_present: {
+        je: 'devienne',
+        tu: 'deviennes',
+        il: 'devienne',
+        nous: 'devenions',
+        vous: 'deveniez',
+        ils: 'deviennent'
+      },
+      passe_simple: {
+        je: 'devins',
+        tu: 'devins',
+        il: 'devint',
+        nous: 'devînmes',
+        vous: 'devîntes',
+        ils: 'devinrent'
+      },
+      imperatif_present: {
+        tu: 'deviens',
+        nous: 'devenons',
+        vous: 'devenez'
+      }
+    },
+    mathematicalNotes: [
+      'Dérivé de VENIR : conserve l’auxiliaire ÊTRE.',
+      'Participe passé "devenu" avec accord : "Elle est devenue ingénieure".'
+    ]
+  },
+  {
+    infinitive: 'revenir',
+    meaningFr: 'Venir de nouveau, retourner au point de départ (Maison d’Être)',
+    translationDarija: 'Rje3 (Auxiliaire Être)',
+    group: 'G3',
+    auxiliary: 'être',
+    pastParticiple: 'revenu',
+    regular: false,
+    stems: {
+      base: 'revien',
+      nousPresent: 'reven',
+      ilsPresent: 'revienn',
+      futureStem: 'reviendr',
+      passeSimpleStem: 'rev'
+    },
+    conjugations: {
+      present: {
+        je: 'reviens',
+        tu: 'reviens',
+        il: 'revient',
+        nous: 'revenons',
+        vous: 'revenez',
+        ils: 'reviennent'
+      },
+      imparfait: {
+        je: 'revenais',
+        tu: 'revenais',
+        il: 'revenait',
+        nous: 'revenions',
+        vous: 'reveniez',
+        ils: 'revenaient'
+      },
+      futur_simple: {
+        je: 'reviendrai',
+        tu: 'reviendras',
+        il: 'reviendra',
+        nous: 'reviendrons',
+        vous: 'reviendrez',
+        ils: 'reviendront'
+      },
+      conditionnel_present: {
+        je: 'reviendrais',
+        tu: 'reviendrais',
+        il: 'reviendrait',
+        nous: 'reviendrions',
+        vous: 'reviendriez',
+        ils: 'reviendraient'
+      },
+      passe_compose: {
+        je: 'suis revenu(e)',
+        tu: 'es revenu(e)',
+        il: 'est revenu',
+        nous: 'sommes revenu(e)s',
+        vous: 'êtes revenu(e)(s)',
+        ils: 'sont revenus'
+      },
+      plus_que_parfait: {
+        je: 'étais revenu(e)',
+        tu: 'étais revenu(e)',
+        il: 'était revenu',
+        nous: 'étions revenu(e)s',
+        vous: 'étiez revenu(e)(s)',
+        ils: 'étaient revenus'
+      },
+      subjonctif_present: {
+        je: 'revienne',
+        tu: 'reviennes',
+        il: 'revienne',
+        nous: 'revenions',
+        vous: 'reveniez',
+        ils: 'reviennent'
+      },
+      passe_simple: {
+        je: 'revins',
+        tu: 'revins',
+        il: 'revint',
+        nous: 'revînmes',
+        vous: 'revîntes',
+        ils: 'revinrent'
+      },
+      imperatif_present: {
+        tu: 'reviens',
+        nous: 'revenons',
+        vous: 'revenez'
+      }
+    },
+    mathematicalNotes: [
+      'Dérivé de VENIR : auxiliaire ÊTRE.',
+      'Participe passé "revenu" avec accord.'
+    ]
+  },
+  {
+    infinitive: 'passer',
+    meaningFr: 'Se déplacer d’un lieu à un autre (quand sens de mouvement)',
+    translationDarija: 'Daz (Auxiliaire Être quand mouvement)',
+    group: 'G1',
+    auxiliary: 'être',
+    pastParticiple: 'passé',
+    regular: true,
+    stems: {
+      base: 'pass',
+      nousPresent: 'pass',
+      ilsPresent: 'pass',
+      futureStem: 'passer',
+      passeSimpleStem: 'pass'
+    },
+    conjugations: {
+      present: {
+        je: 'passe',
+        tu: 'passes',
+        il: 'passe',
+        nous: 'passons',
+        vous: 'passez',
+        ils: 'passent'
+      },
+      imparfait: {
+        je: 'passais',
+        tu: 'passais',
+        il: 'passait',
+        nous: 'passions',
+        vous: 'passiez',
+        ils: 'passaient'
+      },
+      futur_simple: {
+        je: 'passerai',
+        tu: 'passeras',
+        il: 'passera',
+        nous: 'passerons',
+        vous: 'passerez',
+        ils: 'passeront'
+      },
+      conditionnel_present: {
+        je: 'passerais',
+        tu: 'passerais',
+        il: 'passerait',
+        nous: 'passerions',
+        vous: 'passeriez',
+        ils: 'passeraient'
+      },
+      passe_compose: {
+        je: 'suis passé(e)',
+        tu: 'es passé(e)',
+        il: 'est passé',
+        nous: 'sommes passé(e)s',
+        vous: 'êtes passé(e)(s)',
+        ils: 'sont passés'
+      },
+      plus_que_parfait: {
+        je: 'étais passé(e)',
+        tu: 'étais passé(e)',
+        il: 'était passé',
+        nous: 'étions passé(e)s',
+        vous: 'étiez passé(e)(s)',
+        ils: 'étaient passés'
+      },
+      subjonctif_present: {
+        je: 'passe',
+        tu: 'passes',
+        il: 'passe',
+        nous: 'passions',
+        vous: 'passiez',
+        ils: 'passent'
+      },
+      passe_simple: {
+        je: 'passai',
+        tu: 'passas',
+        il: 'passa',
+        nous: 'passâmes',
+        vous: 'passâtes',
+        ils: 'passèrent'
+      },
+      imperatif_present: {
+        tu: 'passe',
+        nous: 'passons',
+        vous: 'passez'
+      }
+    },
+    mathematicalNotes: [
+      'Sens de mouvement intransitif : "Je suis passé par le centre-ville".',
+      'Accord obligatoire avec le sujet avec l’auxiliaire ÊTRE.'
+    ]
   }
 ];
